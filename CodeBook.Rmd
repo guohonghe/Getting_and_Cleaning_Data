@@ -1,0 +1,55 @@
+---
+title: "CodeBook"
+author: "Guohong He"
+date: "11/11/2020"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Code Book
+
+This code book will describe the processing used in this course project to create a tidy data.
+
+### Overview
+
+30 volunteers performed 6 different activities while wearing a smartphone in their waist. The data of sensors (accelerometers and gyroscopes embedded in smartphone) are collected for human movement recognitions. 
+
+### Raw data files used
+
+**_features.txt_**: Names of the 561 variables
+
+**_activity_labels.txt_**: Names and IDs for each of the 6 activities
+
+**_X_test.txt_**: 2947 observations of the 561 features, for 9 of the 30 volunteers
+
+**_y_test.txt_**: A vector of 2947 integers, denoting the ID of the activity of the observations
+
+**_subject_test.txt_**: A vector of 2947 integers, denoting the ID of the volunteer of the observations
+
+**_X_train.txt_**: 7352 observations of the 561 features, for 21 of the 30 volunteers
+
+**_y_train.txt_**: A vector of 7352 integers, denoting the ID of the activity of the observations
+
+**_subject_train.txt_**: A vector of 7352 integers, denoting the ID of the volunteer of the observations
+
+### Processing steps
+
+1. Input all relevant data files. Add appropriate column headers. Merge train set and test set as **_"X_all"_**
+2. Select those the measurements with key words **_"mean"_** or **_"std"_**. Get data set **_"tidyData"_**
+3. Add two addition columns **_"subjects"_** and **_"activities"_**. The content of "activities" column had been replaced by meaningful words. 
+4. The feature names provided in data sets are not clear. Change first letter **_"t"_** as **_"time"_**,  **_"f"_** as **_"freq"_**, and move  **_"mean"_** and **_"std"_** to the end of variable names. A name reference file **_"varNames.txt"_** is exported.
+5. Create an independent tidy data set with the average of each variable for each activity and each subject. The data set is **_"tidyData"_** and it is exported as **_"tidyData.txt"_**.
+
+The data processing R script **_"run_analysis.R"_**, tidy data set **_"tidyData.txt"_** and feature reference list **_"varNames.txt"_** are put in this repo.
+
+
+
+
+
+
+
